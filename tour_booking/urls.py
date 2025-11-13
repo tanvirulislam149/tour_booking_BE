@@ -18,10 +18,12 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 from experiences.views import ExperienceViewSet
+from slots.views import SlotViewSet
 
 
 router = routers.DefaultRouter()
 router.register("experiences", ExperienceViewSet, basename="experiences")
+router.register("slots", SlotViewSet, basename="slots")
 
 urlpatterns = [
     path("", include(router.urls)),
