@@ -22,7 +22,7 @@ from slots.views import SlotViewSet
 
 
 router = routers.DefaultRouter()
-router.register("experiences", ExperienceViewSet, basename="experiences")
+router.register("experience", ExperienceViewSet, basename="experiences")
 router.register("slots", SlotViewSet, basename="slots")
 
 urlpatterns = [
