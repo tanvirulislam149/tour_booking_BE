@@ -19,11 +19,13 @@ from django.urls import path, include
 from rest_framework import routers
 from experiences.views import ExperienceViewSet
 from slots.views import SlotViewSet
+from bookings.views import BookingViewSet
 
 
 router = routers.DefaultRouter()
 router.register("experience", ExperienceViewSet, basename="experiences")
 router.register("slots", SlotViewSet, basename="slots")
+router.register("booking", BookingViewSet, basename="booking")
 
 urlpatterns = [
     path("", include(router.urls)),
