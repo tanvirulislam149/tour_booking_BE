@@ -24,3 +24,11 @@ class CreateBookingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Booking
         fields = ["id", "name", "email", "price", "person", "slot"]
+
+    def validate(self, data):
+        print(data["slot"].id)
+        slot = Slot.objects.filter(id=data["slot"].id).first()
+
+        if slot.availableSeats < data['person']:
+            raise serializers.ValidationError(f"{data['person']} seats are not available.")
+        return data
