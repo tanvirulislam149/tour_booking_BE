@@ -6,7 +6,7 @@ from bookings.models import Booking
 class SimpleExperienceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Experience
-        fields = ["id", "title", "location"]
+        fields = ["id", "title", "location", "price"]
 
 class SimpleSlotSerializer(serializers.ModelSerializer):
     experience = SimpleExperienceSerializer()

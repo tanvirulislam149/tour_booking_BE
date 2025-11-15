@@ -8,8 +8,12 @@ from slots.serializers import SlotSerializer
 
 # Create your views here.
 class ExperienceViewSet(ModelViewSet):
-    queryset = Experience.objects.all()
+    # queryset = Experience.objects.all()
     serializer_class = ExperienceSerializer
+
+    def get_queryset(self):
+        print(self.request.query_params)
+        return Experience.objects.all()
 
     def retrieve(self, request, *args, **kwargs):
         instance = self.get_object()
