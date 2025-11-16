@@ -12,8 +12,8 @@ class ExperienceViewSet(ModelViewSet):
     serializer_class = ExperienceSerializer
 
     def get_queryset(self):
-        print(self.request.query_params)
-        return Experience.objects.all()
+        param = self.request.query_params.get("title")
+        return Experience.objects.filter(title__icontains=param) if param else Experience.objects.all()
 
     def retrieve(self, request, *args, **kwargs):
         instance = self.get_object()
