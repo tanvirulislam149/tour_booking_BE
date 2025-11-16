@@ -12,7 +12,7 @@ class SimpleSlotSerializer(serializers.ModelSerializer):
     experience = SimpleExperienceSerializer()
     class Meta:
         model = Slot
-        fields = ["id", "date", "time", "experience"]
+        fields = ["id", "date", "time", "experience", "availableSeats"]
 
 class BookingSerializer(serializers.ModelSerializer):
     slot = SimpleSlotSerializer()
